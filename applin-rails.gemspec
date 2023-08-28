@@ -4,6 +4,7 @@ require_relative "lib/applin/rails/version"
 
 Gem::Specification.new do |spec|
   # https://guides.rubygems.org/publishing/
+  # https://guides.rubygems.org/specification-reference/
   spec.name = "applin-rails"
   spec.version = Applin::Rails::VERSION
   spec.authors = ["Michael Leonhard"]
@@ -11,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Applin™ server library for Ruby on Rails"
   spec.description = "Create mobile apps using only backend code.  Applin™ is a Server-Driven UI (SDUI) system."
   spec.homepage = "https://www.applin.dev/"
+  spec.license = "LicenseRef-LICENSE.md"
   spec.required_ruby_version = ">= 3.2.2"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/leonhard-llc/applin-rails"
