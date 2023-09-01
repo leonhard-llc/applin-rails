@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.description = "Create mobile apps using only backend code.  Applin™ is a Server-Driven UI (SDUI) system."
   spec.homepage = "https://www.applin.dev/"
   spec.license = "LicenseRef-LICENSE.md"
-  spec.required_ruby_version = ">= 3.2.2"
+  spec.required_ruby_version = ">= 3.2"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/leonhard-llc/applin-rails"
   spec.metadata["changelog_uri"] = "https://raw.githubusercontent.com/leonhard-llc/applin-rails/main/CHANGELOG.md"
