@@ -12,6 +12,9 @@ end
 
 module Applin
   module Rails
+    ALIGN_CENTER = "center"
+    ALIGN_END = "end"
+    ALIGN_START = "start"
     ALLOW_ALL = "all"
     ALLOW_ASCII = "ascii"
     ALLOW_EMAIL = "email"
@@ -37,18 +40,19 @@ module Applin
       { typ: :button, text: text, actions: actions }
     end
 
-    def checkbox(text:, var_name:, actions: nil, initial_bool: nil)
+    def checkbox(text:, var_name:, actions: nil, initial_bool: nil, rpc: nil)
       {
         typ: :checkbox,
         actions: actions,
         initial_bool: initial_bool,
+        rpc: rpc,
         text: text,
         var_name: var_name,
       }.reject { |_k, v| v.nil? }
     end
 
-    def column(widgets:, alignment: nil, spacing: nil)
-      { typ: :column, alignment: alignment, spacing: spacing, widgets: widgets }.reject { |_k, v| v.nil? }
+    def column(widgets:, align: nil, spacing: nil)
+      { typ: :column, align: align, spacing: spacing, widgets: widgets }.reject { |_k, v| v.nil? }
     end
 
     def empty
@@ -63,8 +67,8 @@ module Applin
       { typ: :form, widgets: widgets }
     end
 
-    def form_button(text:, actions:, alignment: nil)
-      { typ: :form_button, alignment: alignment, text: text, actions: actions }.reject { |_k, v| v.nil? }
+    def form_button(text:, actions:, align: nil)
+      { typ: :form_button, align: align, text: text, actions: actions }.reject { |_k, v| v.nil? }
     end
 
     def form_section(widgets:, title: nil)
@@ -94,6 +98,14 @@ module Applin
         text: text,
         actions: actions,
       }.reject { |_k, v| v.nil? }
+    end
+
+    def ok_modal_button(is_default: true)
+      modal_button(text: "OK", is_default: is_default, actions: [pop])
+    end
+
+    def cancel_modal_button(is_default: false)
+      modal_button(text: "Cancel", is_default: is_default, actions: [pop])
     end
 
     def nav_button(text:, actions:, badge_text: nil, photo_url: nil, sub_text: nil)
@@ -148,7 +160,7 @@ module Applin
         poll_seconds: poll_seconds,
         text: text,
         title: title,
-        modal_buttons: modal_buttons
+        widgets: modal_buttons
       }.reject { |_k, v| v.nil? }
     end
 
@@ -159,13 +171,13 @@ module Applin
         poll_seconds: poll_seconds,
         text: text,
         title: title,
-        modal_buttons: modal_buttons
+        widgets: modal_buttons
       }.reject { |_k, v| v.nil? }
     end
 
     def nav_page(title:, start: nil, end_: nil, stream: nil, poll_seconds: nil, &widget_block)
       {
-        typ: :plain_page,
+        typ: :nav_page,
         start: start,
         end: end_,
         title: title,
