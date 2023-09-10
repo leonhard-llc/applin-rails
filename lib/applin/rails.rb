@@ -89,25 +89,6 @@ module Applin
       { typ: :last_error_text }
     end
 
-    def modal_button(text:, actions:, is_cancel: nil, is_default: nil, is_destructive: nil)
-      {
-        typ: :modal_button,
-        is_cancel: is_cancel,
-        is_default: is_default,
-        is_destructive: is_destructive,
-        text: text,
-        actions: actions,
-      }.reject { |_k, v| v.nil? }
-    end
-
-    def ok_modal_button(is_default: true)
-      modal_button(text: "OK", is_default: is_default, actions: [pop])
-    end
-
-    def cancel_modal_button(is_default: false)
-      modal_button(text: "Cancel", is_default: is_default, actions: [pop])
-    end
-
     def nav_button(text:, actions:, badge_text: nil, photo_url: nil, sub_text: nil)
       {
         typ: :nav_button,
@@ -150,28 +131,6 @@ module Applin
         max_lines: max_lines,
         min_chars: min_chars,
         var_name: var_name,
-      }.reject { |_k, v| v.nil? }
-    end
-
-    def alert_modal(title:, modal_buttons:, stream: nil, poll_seconds: nil, text: nil)
-      {
-        typ: :alert_modal,
-        stream: stream,
-        poll_seconds: poll_seconds,
-        text: text,
-        title: title,
-        widgets: modal_buttons
-      }.reject { |_k, v| v.nil? }
-    end
-
-    def drawer_modal(title:, modal_buttons:, stream: nil, poll_seconds: nil, text: nil)
-      {
-        typ: :drawer_modal,
-        stream: stream,
-        poll_seconds: poll_seconds,
-        text: text,
-        title: title,
-        widgets: modal_buttons
       }.reject { |_k, v| v.nil? }
     end
 
