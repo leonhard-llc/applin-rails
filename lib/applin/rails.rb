@@ -59,6 +59,7 @@ module Applin
       { typ: :empty }
     end
 
+    # The client replaces `${INTERACTIVE_ERROR_DETAILS}` with the text of the last error.
     def error_text(text)
       { typ: :error_text, text: text }
     end
