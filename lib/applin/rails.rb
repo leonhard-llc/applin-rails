@@ -135,11 +135,12 @@ module Applin
       }.reject { |_k, v| v.nil? }
     end
 
-    def nav_page(title:, start: nil, end_: nil, stream: nil, poll_seconds: nil, &widget_block)
+    def nav_page(title:, start: nil, end_: nil, ephemeral: nil, stream: nil, poll_seconds: nil, &widget_block)
       {
         typ: :nav_page,
         start: start,
         end: end_,
+        ephemeral: ephemeral,
         title: title,
         stream: stream,
         poll_seconds: poll_seconds,
@@ -147,10 +148,11 @@ module Applin
       }.reject { |_k, v| v.nil? }
     end
 
-    def plain_page(title: nil, stream: nil, poll_seconds: nil, &widget_block)
+    def plain_page(title: nil, ephemeral: nil, stream: nil, poll_seconds: nil, &widget_block)
       {
         typ: :plain_page,
         title: title,
+        ephemeral: ephemeral,
         stream: stream,
         poll_seconds: poll_seconds,
         widget: widget_block.yield
