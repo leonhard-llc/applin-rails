@@ -23,6 +23,6 @@ When sending PRs, please email us a signed CLA using [cla-email-template.txt](cl
 
 To release a new version:
 1. Install the gem onto your local machine: `bundle exec rake install`
-2. Test it with <https://github.com/leonhard-llc/applin-rails-example>
+2. Test it with <https://github.com/leonhard-llc/applin-rails-demo>
 1. Update the version number in `version.rb`
 1. Run `bundle exec rake release`.  This will create a git tag, make a `.gem` file, and push the file to <https://rubygems.org>.
