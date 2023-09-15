@@ -1,9 +1,7 @@
 # Applin::Rails
 
-Applin™ server library for Ruby on Rails
-https://www.applin.dev/
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/applin/rails`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is the source code for the [applin-rails](https://rubygems.org/gems/applin-rails) gem.
+It is a library for making Ruby on Rails servers that work with [Applin™](https://www.applin.dev/).
 
 ## Install
 To add the gem to your Rails application:
@@ -11,10 +9,12 @@ To add the gem to your Rails application:
     $ bundle add applin-rails
 
 ## Use
-TODO
+See https://github.com/leonhard-llc/applin-rails-demo
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at <https://github.com/leonhard-llc/applin-rails>.
+
+When sending PRs, please email us a signed CLA using [cla-email-template.txt](cla-email-template.txt).
 
 ## Development
 * Install dependencies: `bin/setup`
