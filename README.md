@@ -1,6 +1,6 @@
 # Applin::Rails
 
-This is the source code for the [applin-rails](https://rubygems.org/gems/applin-rails) gem.
+This is the source code for <https://rubygems.org/gems/applin-rails>.
 It is a library for making Ruby on Rails servers that work with [Applin™](https://www.applin.dev/).
 
 ## Install
