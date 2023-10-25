@@ -1,0 +1,115 @@
+# https://github.com/ruby/rbs#guides
+
+module Applin
+  type alignment = String
+
+  ALIGN_CENTER: alignment
+  ALIGN_END: alignment
+  ALIGN_START: alignment
+
+  type allow = String
+
+  ALLOW_ALL: allow
+  ALLOW_ASCII: allow
+  ALLOW_EMAIL: allow
+  ALLOW_NUMBERS: allow
+  ALLOW_TEL: allow
+
+  type auto_capitalize = String
+
+  AUTO_CAPITALIZE_NAMES: auto_capitalize
+  AUTO_CAPITALIZE_SENTENCES: auto_capitalize
+
+  type disposition = String
+
+  DISPOSITION_COVER: disposition
+  DISPOSITION_FIT: disposition
+  DISPOSITION_STRETCH: disposition
+  VERSION: String
+
+  type action = String
+  type page = { title: String }
+  type widget = { typ: String }
+
+  def back_button: (actions: Array[action]) -> widget
+
+  def button: (text: String, actions: Array[action]) -> widget
+
+  def checkbox: (text: String, var_name: String, actions: Array[action]?, initial_bool: bool?, rpc: String?) -> widget
+
+  def choose_photo: (upload_url: String) -> action
+
+  def column: (widgets: Array[widget], align: alignment?, spacing: Numeric?) -> widget
+
+  def copy_to_clipboard: (String) -> action
+
+  def empty: -> widget
+
+  def error_text: (String) -> widget
+
+  def form: (widgets: Array[widget]) -> widget
+
+  def form_button: (text: String, actions: Array[action], align: alignment?) -> widget
+
+  def form_section: (widgets: Array[widget], title: String?) -> widget
+
+  def grouped_row_table: (row_groups: Array[Array[Array[widget]]], spacing: Numeric?) -> widget
+
+  def image: (aspect_ratio: Numeric, url: String, disposition: disposition?) -> widget
+
+  def last_error_text: -> widget
+
+  def launch_url: (String) -> action
+
+  def logout: -> action
+
+  def nav_button: (text: String, actions: Array[action], badge_text: String?, photo_url: String?, sub_text: String?) -> widget
+
+  def nav_page: (
+      title: String,
+      start: widget?,
+      end_: widget?,
+      ephemeral: bool?,
+      stream: bool?,
+      poll_seconds: Numeric?,
+    ) { () -> widget } -> page
+
+  def nothing: -> action
+
+  def plain_page: (
+      title: String?,
+      ephemeral: bool?,
+      stream: bool?,
+      poll_seconds: Numeric?,
+    ) { () -> widget } -> page
+
+  def poll: -> action
+
+  def pop: -> action
+
+  def push: (String) -> action
+
+  def replace_all: (String) -> action
+
+  def rpc: (String) -> action
+
+  def scroll: () { () -> widget } -> widget
+
+  def table: (rows: Array[Array[widget]], spacing: Numeric?) -> widget
+
+  def take_photo: (upload_url: String) -> action
+
+  def text: (String) -> widget
+
+  def textfield: (
+      var_name: String,
+      allow: allow?,
+      auto_capitalize: auto_capitalize?,
+      error: String?,
+      initial_string: String?,
+      label: String?,
+      max_chars: Numeric?,
+      max_lines: Numeric?,
+      min_chars: Numeric?
+    ) -> widget
+end

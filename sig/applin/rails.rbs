@@ -1,6 +1,5 @@
 module Applin
   module Rails
-    VERSION: String
-    # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+    def send_page: (page: page, options: untyped) -> nil
   end
 end

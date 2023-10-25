@@ -11,3 +11,15 @@ Style/StringLiteralsInInterpolation:
 
 Layout/LineLength:
   Max: 120
+
+Layout/LeadingCommentSpace:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Max: 250
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
