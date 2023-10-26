@@ -18,6 +18,10 @@ module Applin
   DISPOSITION_STRETCH = "stretch"
   DISPOSITION_COVER = "cover"
 
+  module_function
+
+  # Widgets ###################################################################
+
   def back_button(actions:)
     { typ: :back_button, actions: actions }
   end
@@ -130,6 +134,8 @@ module Applin
     }.compact
   end
 
+  # Pages #####################################################################
+
   def nav_page(
     title:,
     start: nil,
@@ -161,6 +167,8 @@ module Applin
       widget: widget_block.yield,
     }.compact
   end
+
+  # Actions ###################################################################
 
   def choose_photo(upload_url:)
     "choose_photo:#{upload_url}"
