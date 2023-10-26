@@ -1,7 +1,10 @@
 # Applin::Rails
 
 This is the source code for <https://rubygems.org/gems/applin-rails>.
-It is a library for making Ruby on Rails servers that work with [Applin™](https://www.applin.dev/).
+
+Use this library to make a backend for your mobile app which uses
+the Applin™ Server-Driven UI framework.
+See <https://www.applin.dev/>
 
 ## Install
 To add the gem to your Rails application:
@@ -9,7 +12,8 @@ To add the gem to your Rails application:
     $ bundle add applin-rails
 
 ## Use
-See https://github.com/leonhard-llc/applin-rails-demo
+* Docs: <https://www.applin.dev/docs/backend-libraries.html>
+* Example: <https://github.com/leonhard-llc/applin-rails-demo>
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at <https://github.com/leonhard-llc/applin-rails>.
