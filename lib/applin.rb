@@ -20,6 +20,86 @@ module Applin
 
   module_function
 
+  # Actions ###################################################################
+
+  def choose_photo(upload_url:)
+    "choose_photo:#{upload_url}"
+  end
+
+  def copy_to_clipboard(text)
+    "copy_to_clipboard:#{text}"
+  end
+
+  def launch_url(url)
+    "launch_url:#{url}"
+  end
+
+  def logout
+    "logout"
+  end
+
+  def on_user_error_poll
+    "on_user_error_poll"
+  end
+
+  def poll
+    "poll"
+  end
+
+  def pop
+    "pop"
+  end
+
+  def push(page_key)
+    "push:#{page_key}"
+  end
+
+  def replace_all(page_key)
+    "replace_all:#{page_key}"
+  end
+
+  def rpc(url)
+    "rpc:#{url}"
+  end
+
+  def take_photo(upload_url:)
+    "take_photo:#{upload_url}"
+  end
+
+  # Pages #####################################################################
+
+  def nav_page(
+    title:,
+    start: nil,
+    end_: nil,
+    ephemeral: nil,
+    stream: nil,
+    poll_seconds: nil,
+    &widget_block
+  )
+    {
+      typ: :nav_page,
+      start: start,
+      end: end_,
+      ephemeral: ephemeral,
+      title: title,
+      stream: stream,
+      poll_seconds: poll_seconds,
+      widget: widget_block.yield,
+    }.compact
+  end
+
+  def plain_page(title: nil, ephemeral: nil, stream: nil, poll_seconds: nil, &widget_block)
+    {
+      typ: :plain_page,
+      title: title,
+      ephemeral: ephemeral,
+      stream: stream,
+      poll_seconds: poll_seconds,
+      widget: widget_block.yield,
+    }.compact
+  end
+
   # Widgets ###################################################################
 
   def back_button(actions:)
@@ -132,86 +212,6 @@ module Applin
       min_chars: min_chars,
       var_name: var_name,
     }.compact
-  end
-
-  # Pages #####################################################################
-
-  def nav_page(
-    title:,
-    start: nil,
-    end_: nil,
-    ephemeral: nil,
-    stream: nil,
-    poll_seconds: nil,
-    &widget_block
-  )
-    {
-      typ: :nav_page,
-      start: start,
-      end: end_,
-      ephemeral: ephemeral,
-      title: title,
-      stream: stream,
-      poll_seconds: poll_seconds,
-      widget: widget_block.yield,
-    }.compact
-  end
-
-  def plain_page(title: nil, ephemeral: nil, stream: nil, poll_seconds: nil, &widget_block)
-    {
-      typ: :plain_page,
-      title: title,
-      ephemeral: ephemeral,
-      stream: stream,
-      poll_seconds: poll_seconds,
-      widget: widget_block.yield,
-    }.compact
-  end
-
-  # Actions ###################################################################
-
-  def choose_photo(upload_url:)
-    "choose_photo:#{upload_url}"
-  end
-
-  def copy_to_clipboard(text)
-    "copy_to_clipboard:#{text}"
-  end
-
-  def launch_url(url)
-    "launch_url:#{url}"
-  end
-
-  def logout
-    "logout"
-  end
-
-  def on_user_error_poll
-    "on_user_error_poll"
-  end
-
-  def poll
-    "poll"
-  end
-
-  def pop
-    "pop"
-  end
-
-  def push(page_key)
-    "push:#{page_key}"
-  end
-
-  def replace_all(page_key)
-    "replace_all:#{page_key}"
-  end
-
-  def rpc(url)
-    "rpc:#{url}"
-  end
-
-  def take_photo(upload_url:)
-    "take_photo:#{upload_url}"
   end
 
   # rubocop:enable Metrics/MethodLength, Metrics/ParameterLists
