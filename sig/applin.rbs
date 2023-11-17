@@ -76,6 +76,8 @@ module Applin
 
   def nothing: -> action
 
+  def on_user_error_poll: -> action
+
   def plain_page: (
       title: String?,
       ephemeral: bool?,

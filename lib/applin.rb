@@ -190,6 +190,10 @@ module Applin
     "nothing"
   end
 
+  def on_user_error_poll
+    "on_user_error_poll"
+  end
+
   def poll
     "poll"
   end
