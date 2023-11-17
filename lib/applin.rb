@@ -186,10 +186,6 @@ module Applin
     "logout"
   end
 
-  def nothing
-    "nothing"
-  end
-
   def on_user_error_poll
     "on_user_error_poll"
   end

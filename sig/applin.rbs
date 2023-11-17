@@ -74,8 +74,6 @@ module Applin
       poll_seconds: Numeric?,
     ) { () -> widget } -> page
 
-  def nothing: -> action
-
   def on_user_error_poll: -> action
 
   def plain_page: (
