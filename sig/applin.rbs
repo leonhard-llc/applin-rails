@@ -35,7 +35,13 @@ module Applin
 
   def button: (text: String, actions: Array[action]) -> widget
 
-  def checkbox: (text: String, var_name: String, actions: Array[action]?, initial_bool: bool?, rpc: String?) -> widget
+  def checkbox: (
+      text: String,
+      var_name: String,
+      actions: Array[action]?,
+      initial_bool: bool?,
+      poll_delay_ms: Numeric?,
+    ) -> widget
 
   def choose_photo: (upload_url: String) -> action
 
@@ -110,6 +116,7 @@ module Applin
       label: String?,
       max_chars: Numeric?,
       max_lines: Numeric?,
-      min_chars: Numeric?
+      min_chars: Numeric?,
+      poll_delay_ms: Numeric?
     ) -> widget
 end

@@ -110,12 +110,12 @@ module Applin
     { typ: :button, text: text, actions: actions }
   end
 
-  def checkbox(text:, var_name:, actions: nil, initial_bool: nil, rpc: nil)
+  def checkbox(text:, var_name:, actions: nil, initial_bool: nil, poll_delay_ms: nil)
     {
       typ: :checkbox,
       actions: actions,
       initial_bool: initial_bool,
-      rpc: rpc,
+      poll_delay_ms: poll_delay_ms,
       text: text,
       var_name: var_name,
     }.compact
@@ -198,7 +198,8 @@ module Applin
     label: nil,
     max_chars: nil,
     max_lines: nil,
-    min_chars: nil
+    min_chars: nil,
+    poll_delay_ms: nil
   )
     {
       typ: :textfield,
@@ -210,6 +211,7 @@ module Applin
       max_chars: max_chars,
       max_lines: max_lines,
       min_chars: min_chars,
+      poll_delay_ms: poll_delay_ms,
       var_name: var_name,
     }.compact
   end

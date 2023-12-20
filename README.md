@@ -15,6 +15,12 @@ To add the gem to your Rails application:
 * Docs: <https://www.applin.dev/docs/backend-libraries.html>
 * Example: <https://github.com/leonhard-llc/applin-rails-demo>
 
+## Changes
+- v0.6.0
+    - Support ApplinIos v0.25.0.
+    - Add `poll_delay_ms` to checkbox and textfield.
+    - Remove checkbox `rpc` field.
+
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at <https://github.com/leonhard-llc/applin-rails>.
 
