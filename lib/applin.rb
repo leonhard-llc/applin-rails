@@ -22,48 +22,52 @@ module Applin
 
   # Actions ###################################################################
 
-  def choose_photo(upload_url:)
-    "choose_photo:#{upload_url}"
+  def choose_photo(upload_url:, aspect_ratio: nil)
+    { typ: "choose_photo", url: upload_url, aspect_ratio: aspect_ratio }
   end
 
   def copy_to_clipboard(text)
-    "copy_to_clipboard:#{text}"
+    { typ: "copy_to_clipboard", string_value: text }
   end
 
   def launch_url(url)
-    "launch_url:#{url}"
+    { typ: "launch_url", url: url }
   end
 
   def logout
-    "logout"
+    { typ: "logout" }
   end
 
-  def on_user_error_poll
-    "on_user_error_poll"
+  def modal_button(text:, actions:)
+    { text: text, actions: actions }
+  end
+
+  def modal(title:, buttons:, message: nil)
+    { typ: "modal", title: title, message: message, buttons: buttons }
   end
 
   def poll
-    "poll"
+    { typ: "poll" }
   end
 
   def pop
-    "pop"
+    { typ: "pop" }
   end
 
   def push(page_key)
-    "push:#{page_key}"
+    { typ: "push", page: page_key }
   end
 
   def replace_all(page_key)
-    "replace_all:#{page_key}"
+    { typ: "replace_all", page: page_key }
   end
 
-  def rpc(url)
-    "rpc:#{url}"
+  def rpc(url:, on_user_error_poll: nil)
+    { typ: "rpc", url: url, on_user_error_poll: on_user_error_poll }
   end
 
-  def take_photo(upload_url:)
-    "take_photo:#{upload_url}"
+  def take_photo(upload_url:, aspect_ratio: nil)
+    { typ: "take_photo", url: upload_url, aspect_ratio: aspect_ratio }
   end
 
   # Pages #####################################################################

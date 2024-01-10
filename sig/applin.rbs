@@ -27,7 +27,8 @@ module Applin
   DISPOSITION_STRETCH: disposition
   VERSION: String
 
-  type action = String
+  type action = { typ: String }
+  type modal_button = { text: String, actions: Array[action] }
   type page = { title: String }
   type widget = { typ: String }
 
@@ -43,7 +44,7 @@ module Applin
       poll_delay_ms: Numeric?,
     ) -> widget
 
-  def choose_photo: (upload_url: String) -> action
+  def choose_photo: (upload_url: String, aspect_ratio: Numeric?) -> action
 
   def column: (widgets: Array[widget], align: alignment?, spacing: Numeric?) -> widget
 
@@ -69,6 +70,10 @@ module Applin
 
   def logout: -> action
 
+  def modal_button: (text: String, actions: Array[action]) -> modal_button
+
+  def modal: (title: String, message: String?, buttons: Array[modal_button]) -> action
+
   def nav_button: (text: String, actions: Array[action], badge_text: String?, photo_url: String?, sub_text: String?) -> widget
 
   def nav_page: (
@@ -79,8 +84,6 @@ module Applin
       stream: bool?,
       poll_seconds: Numeric?,
     ) { () -> widget } -> page
-
-  def on_user_error_poll: -> action
 
   def plain_page: (
       title: String?,
@@ -97,13 +100,13 @@ module Applin
 
   def replace_all: (String) -> action
 
-  def rpc: (String) -> action
+  def rpc: (url: String, on_user_error_poll: bool?) -> action
 
   def scroll: () { () -> widget } -> widget
 
   def table: (rows: Array[Array[widget]], spacing: Numeric?) -> widget
 
-  def take_photo: (upload_url: String) -> action
+  def take_photo: (upload_url: String, aspect_ratio: Numeric?) -> action
 
   def text: (String) -> widget
 
